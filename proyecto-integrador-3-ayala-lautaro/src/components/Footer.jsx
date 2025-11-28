@@ -2,11 +2,14 @@ export const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-100 p-4 mt-8 border-t border-gray-200 text-center text-sm text-gray-600">
-      <p className="mb-1">
-        &copy; {year} <span className="font-semibold">Martínez Javier Nicolás</span>
-      </p>
-      <p className="">TLP 2</p>
+    // bg-light, p-3, mt-5, border-top, text-center small text-secondary
+    <footer className="bg-light p-3 mt-5 border-top border-secondary-subtle text-center small text-secondary">
+      <div className="container">
+        <p className="mb-1">
+          &copy; {year} <span className="fw-semibold">Martínez Javier Nicolás</span>
+        </p>
+        <p className="m-0">TLP 2</p>
+      </div>
     </footer>
   );
 };
