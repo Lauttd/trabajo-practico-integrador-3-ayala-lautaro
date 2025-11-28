@@ -54,7 +54,7 @@ export const HomePage = ({ taskRefreshKey }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light">
         <Loading />
       </div>
     );
@@ -62,47 +62,62 @@ export const HomePage = ({ taskRefreshKey }) => {
 
   return (
     // CONTENEDOR PRINCIPAL
-    <main className="min-h-screen bg-gray-50 p-4 md:p-8">
-      {/* DASHBOARD CARD */}
-      <div className="w-full max-w-4xl mx-auto bg-white p-6 md:p-10 shadow-lg rounded-xl">
+    <main className="min-vh-100 bg-light p-4 p-md-5">
+      {/* DASHBOARD CARD (card, mx-auto, shadow-lg, rounded-3) */}
+      <div className="card col-12 col-md-10 col-lg-8 mx-auto p-4 p-md-5 shadow-lg rounded-3">
         {/* TÍTULO DE BIENVENIDA */}
-        <h1 className="text-3xl font-light text-gray-700 mb-6">
+        <h1 className="h3 fw-light text-secondary mb-4">
           Welcome,{" "}
-          <span className="font-bold text-blue-600">
+          <span className="fw-bold text-primary">
             {userData?.user?.name || "User"}
           </span>
         </h1>
 
-        {/* CONTENEDOR DE ESTADÍSTICAS */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-b border-gray-200 py-6">
-          {/* 💡 TARJETA FALTANTE: Total de Tareas */}
-          <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 shadow-sm text-center">
-            <h2 className="text-4xl font-extrabold text-blue-600">
-              {allTasks}
-            </h2>
-            <p className="text-sm font-medium text-gray-600 mt-1">Tasks All</p>
+        {/* CONTENEDOR DE ESTADÍSTICAS (Bootstrap Grid) */}
+        <div className="row row-cols-1 row-cols-md-3 g-4 border-top border-bottom py-4">
+          {/* Tarjeta de Tareas - ALL */}
+          <div className="col">
+            <div className="card bg-primary-subtle border-start border-4 border-primary shadow-sm text-center h-100">
+              <div className="card-body p-3">
+                <h2 className="card-title h1 fw-bolder text-primary">
+                  {allTasks}
+                </h2>
+                <p className="card-text small fw-medium text-secondary mt-1">Tasks All</p>
+              </div>
+            </div>
           </div>
+          
           {/* Tarjeta de Tareas Completadas */}
-          <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 shadow-sm text-center">
-            <h2 className="text-4xl font-extrabold text-green-600">
-              {completedTasks}
-            </h2>
-            <p className="text-sm font-medium text-gray-600 mt-1">Completed</p>
+          <div className="col">
+            <div className="card bg-success-subtle border-start border-4 border-success shadow-sm text-center h-100">
+              <div className="card-body p-3">
+                <h2 className="card-title h1 fw-bolder text-success">
+                  {completedTasks}
+                </h2>
+                <p className="card-text small fw-medium text-secondary mt-1">Completed</p>
+              </div>
+            </div>
           </div>
 
           {/* Tarjeta de Tareas Pendientes */}
-          <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500 shadow-sm text-center">
-            <h2 className="text-4xl font-extrabold text-yellow-600">
-              {pendingTasks}
-            </h2>
-            <p className="text-sm font-medium text-gray-600 mt-1">Pending</p>
+          <div className="col">
+            <div className="card bg-warning-subtle border-start border-4 border-warning shadow-sm text-center h-100">
+              <div className="card-body p-3">
+                <h2 className="card-title h1 fw-bolder text-warning-emphasis">
+                  {pendingTasks}
+                </h2>
+                <p className="card-text small fw-medium text-secondary mt-1">Pending</p>
+              </div>
+            </div>
           </div>
-
-          {/* Botón/Tarjeta de Acción */}
-          <div className="flex items-center justify-center">
+        </div>
+        
+        {/* Botón de Acción */}
+        <div className="pt-4 d-flex justify-content-center">
+          <div className="col-md-6">
             <Link
               to="/tasks"
-              className="w-full text-center bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition duration-150 transform hover:scale-105"
+              className="btn btn-primary btn-lg w-100 fw-bold shadow-sm"
             >
               Go to tasks
             </Link>
