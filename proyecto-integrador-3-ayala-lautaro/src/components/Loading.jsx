@@ -1,18 +1,14 @@
 export const Loading = () => {
   return (
-    // Overlay fijo (fixed, full screen, dark background with opacity)
     <div className="modal d-flex justify-content-center align-items-center show" style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)', position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 1050 }}>
-      {/* Card/Container con el mensaje de carga (bg-warning, border-4 border-dark, shadow) */}
       <div className="card text-center bg-warning p-4 border border-dark border-4 shadow" style={{ width: '18rem' }}>
         <div className="card-body">
           <h5 className="card-title text-dark">
             <span className="spinner-grow spinner-grow-sm text-dark me-2" role="status" aria-hidden="true"></span>
-            <span className="fw-bolder">⏳ CARGANDO...</span>
+            <span className="fw-bolder">CARGANDO...</span>
           </h5>
           <p className="card-text text-secondary small">
-            ¡Ajustando píxeles y cargando datos!
           </p>
-          {/* BARRA DE PROGRESO */}
           <div className="progress mt-3">
             <div 
               className="progress-bar progress-bar-striped progress-bar-animated bg-dark" 

@@ -61,9 +61,7 @@ export const HomePage = ({ taskRefreshKey }) => {
   }
 
   return (
-    // CONTENEDOR PRINCIPAL
     <main className="min-vh-100 bg-light p-4 p-md-5">
-      {/* DASHBOARD CARD (card, mx-auto, shadow-lg, rounded-3) */}
       <div className="card col-12 col-md-10 col-lg-8 mx-auto p-4 p-md-5 shadow-lg rounded-3">
         {/* TÍTULO DE BIENVENIDA */}
         <h1 className="h3 fw-light text-secondary mb-4">
@@ -73,7 +71,6 @@ export const HomePage = ({ taskRefreshKey }) => {
           </span>
         </h1>
 
-        {/* CONTENEDOR DE ESTADÍSTICAS (Bootstrap Grid) */}
         <div className="row row-cols-1 row-cols-md-3 g-4 border-top border-bottom py-4">
           {/* Tarjeta de Tareas - ALL */}
           <div className="col">
@@ -87,7 +84,7 @@ export const HomePage = ({ taskRefreshKey }) => {
             </div>
           </div>
           
-          {/* Tarjeta de Tareas Completadas */}
+
           <div className="col">
             <div className="card bg-success-subtle border-start border-4 border-success shadow-sm text-center h-100">
               <div className="card-body p-3">

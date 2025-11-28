@@ -23,7 +23,6 @@ export const Navbar = ({ isAuth, onLogout }) => {
   };
 
   return (
-    // Usando navbar-dark y bg-dark con shadow y sticky-top
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
       <div className="container-fluid container">
         {/* TÍTULO/LOGO */}
@@ -37,7 +36,7 @@ export const Navbar = ({ isAuth, onLogout }) => {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           {isAuth ? (
-            // ENLACES PARA USUARIO AUTENTICADO
+     
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
               <li className="nav-item">
                 <Link
@@ -67,14 +66,14 @@ export const Navbar = ({ isAuth, onLogout }) => {
               <li className="nav-item ms-md-2">
                 <button
                   onClick={handleLogout}
-                  className="btn btn-danger btn-sm fw-semibold" // Botón de Bootstrap
+                  className="btn btn-danger btn-sm fw-semibold" 
                 >
                   Logout
                 </button>
               </li>
             </ul>
           ) : (
-            // ENLACES PARA USUARIO NO AUTENTICADO
+
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
