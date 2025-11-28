@@ -12,7 +12,7 @@ export const TasksPage = ({ onTasksChange }) => {
     is_completed: false,
   });
 
-  // Crear o editar
+
   const [idEdit, setIdEdit] = useState(null);
 
   const fetchTasks = async () => {
@@ -149,11 +149,11 @@ export const TasksPage = ({ onTasksChange }) => {
   };
 
   return (
-    // CONTENEDOR PRINCIPAL
+
     <main className="min-vh-100 bg-light p-3 p-md-5">
-      {/* GRID DE DOS COLUMNAS (en desktop) / UNA COLUMNA (en mobile) */}
+
       <div className="container-lg mx-auto row g-4">
-        {/* SECCIÓN FORMULARIO (1/3 en desktop) */}
+
         <section className="col-lg-4">
           <div className="card p-4 shadow-lg rounded-3 sticky-top" style={{ top: '80px' }}>
             <h2
