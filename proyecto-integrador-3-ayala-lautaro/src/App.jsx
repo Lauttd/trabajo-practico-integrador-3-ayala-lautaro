@@ -1,35 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { AppRouter } from "./router/AppRouter.jsx";
+import { Footer } from "./components/Footer.jsx";
+import { Navbar } from "./components/NavBar.jsx";
+import { useEffect, useState } from "react";
+import { Loading } from "./components/Loading.jsx";
+export const App = () => {
+  const [isAuth, setIsAuth] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [taskRefreshKey, setTaskRefreshKey] = useState(0);
 
-function App() {
-  const [count, setCount] = useState(0)
+  const checkAuth = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/api/profile", {
+        credentials: "include",
+      });
+
+      if (res.ok) {
+        setIsAuth(true);
+      } else {
+        setIsAuth(false);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
+  const handleLogin = () => {
+    setIsAuth(true);
+  };
+
+  const handleLogout = () => {
+    setIsAuth(false);
+  };
+
+  const handleTaskChange = () => {
+    setTaskRefreshKey((prevKey) => prevKey + 1);
+  };
+
+  if (loading) {
+    return (
+      <div className="min-vh-100 d-flex justify-content-center align-items-center">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navbar isAuth={isAuth} onLogout={handleLogout} />
+      <AppRouter
+        isAuth={isAuth}
+        onLogin={handleLogin}
+        onLogout={handleLogout}
+        taskRefreshKey={taskRefreshKey}
+        onTasksChange={handleTaskChange}
+      />
+      <Footer />
     </>
-  )
-}
-
-export default App
+  );
+};
