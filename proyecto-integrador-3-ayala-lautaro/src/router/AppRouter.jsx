@@ -5,7 +5,7 @@ import { RegisterPage } from "../pages/RegisterPage.jsx";
 import { PrivateRoutes } from "./PrivateRoute.jsx";
 import { PublicRoutes } from "./PublicRoute.jsx";
 import { ProfilePage } from "../pages/ProfilePage.jsx";
-import { TasksPage } from "../pages/TasksPage.jsx";
+import { TasksPage } from "../pages/TaskPage.jsx";
 
 export const AppRouter = ({
   isAuth,

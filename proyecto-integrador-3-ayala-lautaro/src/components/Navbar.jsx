@@ -25,7 +25,6 @@ export const Navbar = ({ isAuth, onLogout }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
       <div className="container-fluid container">
-        {/* TÍTULO/LOGO */}
         <Link className="navbar-brand text-white fw-bold" to="/home">
           TP 2 INTEGRADOR
         </Link>
